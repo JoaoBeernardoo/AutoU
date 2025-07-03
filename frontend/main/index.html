@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Classificador de E-mails - AutoU</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <div id="notification" class="notification hidden"></div>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="containerTitle">
+          <h2>Classificador de E-mails</h2>
+          <div class="triangle-icon">
+            <svg width="40" height="40" viewBox="0 0 100 100">
+              <path
+                d="M50 10 L90 90 Q50 70 10 90 Z"
+                fill="none"
+                stroke="orange"
+                stroke-width="5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <p class="subtitle">Escolha a forma de envio para análise:</p>
+
+      <div class="option-buttons">
+        <button type="button" id="btnTexto">Texto do E-mail</button>
+        <button type="button" id="btnArquivo">Arquivo</button>
+      </div>
+
+      <form id="emailForm">
+        <div id="areaTexto" class="input-area hidden">
+          <label for="emailText" style="color: gray"
+            >Cole ou escreva o conteúdo do e-mail:</label
+          >
+          <textarea id="emailText" placeholder="Digite aqui..."></textarea>
+        </div>
+
+        <div id="areaArquivo" class="input-area hidden">
+          <label for="emailFile" style="color: gray"
+            >Selecione um arquivo (<b>.txt ou .pdf</b>):</label
+          >
+
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-top: 10px;
+            "
+          >
+            <input
+              type="file"
+              id="emailFile"
+              accept=".txt,.pdf"
+              style="display: none"
+            />
+            <button type="button" class="btn btn-secondary" id="customFileBtn">
+              Selecionar Arquivo
+            </button>
+            <span id="fileName" style="color: gray"
+              >Nenhum arquivo selecionado</span
+            >
+          </div>
+        </div>
+
+        <button type="submit" id="btnClassificar" class="submit-btn hidden">
+          Classificar
+        </button>
+      </form>
+
+      <div id="resultado" class="resultado hidden">
+        <div class="resultado-item categoria-box">
+          <div class="icon-container">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="#d9730d"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-tag"
+            >
+              <path
+                d="M20.59 13.41L11 3.83a2 2 0 0 0-2.83 0L3.83 8.17a2 2 0 0 0 0 2.83l9.59 9.59a2 2 0 0 0 2.83 0l4.34-4.34a2 2 0 0 0 0-2.83z"
+              ></path>
+              <line x1="7" y1="7" x2="7" y2="7"></line>
+            </svg>
+          </div>
+          <div class="resultado-conteudo">
+            <h4>Categoria</h4>
+            <p id="categoria" class="destaque-texto"></p>
+          </div>
+        </div>
+
+        <div class="resultado-item resposta-box">
+          <div class="icon-container">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="#007bff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-message-square"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+          </div>
+          <div class="resultado-conteudo">
+            <h4>Resposta Sugerida</h4>
+            <p id="resposta" class="resposta-texto"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/pdfjs-dist@3.8.162/build/pdf.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
