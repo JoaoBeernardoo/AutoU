@@ -194,7 +194,6 @@ textarea {
   background-color: #e6f9ec;
 }
 
-/* Para resultado IMPRODUTIVO */
 .categoria-improdutivo {
   color: #dc3545;
   font-weight: bold;
@@ -209,7 +208,7 @@ textarea {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #f44336; /* vermelho padrão para erro */
+  background-color: #f44336;
   color: white;
   padding: 12px 20px;
   border-radius: 6px;
@@ -219,14 +218,36 @@ textarea {
 }
 
 .notification.success {
-  background-color: #4caf50; /* verde para sucesso */
+  background-color: #4caf50;
 }
 
 .notification.warning {
-  background-color: #ff9800; /* laranja para alertas */
+  background-color: #ff9800;
 }
 
 .notification.hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
 }

@@ -14,25 +14,23 @@ const respostaEl = document.getElementById('resposta');
 const resultadoDiv = document.getElementById('resultado');
 
 const notification = document.getElementById('notification');
+const spinner = document.getElementById('spinner');
 
-// PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   'https://unpkg.com/pdfjs-dist@3.8.162/build/pdf.worker.min.js';
 
-// Mostrar notificação
 function showNotification(message, type = 'warning') {
   notification.innerText = message;
   notification.className = `notification ${type}`;
   setTimeout(() => {
     notification.classList.add('hidden');
   }, 3500);
-  // Garante que a classe hidden seja removida no início
+
   setTimeout(() => {
     notification.classList.remove('hidden');
   }, 10);
 }
 
-// Botões de alternância
 btnTexto.addEventListener('click', () => {
   areaTexto.classList.remove('hidden');
   areaArquivo.classList.add('hidden');
@@ -112,7 +110,10 @@ form.addEventListener('submit', async (e) => {
 
 function classifyText(emailText) {
   console.log('Entroou');
-  fetch('https://autou-pkx4.onrender.com/email/classify-email', {
+
+  spinner.classList.remove('hidden');
+
+  fetch('https://autou-ekn4.onrender.com/email/classify-email', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email_text: emailText }),
@@ -148,9 +149,11 @@ function classifyText(emailText) {
       fileNameSpan.textContent = 'Nenhum arquivo selecionado';
 
       showNotification('Classificação realizada com sucesso!', 'success');
+      spinner.classList.add('hidden');
     })
     .catch((err) => {
       console.error(err);
       showNotification('Erro ao classificar. Verifique a API.', 'warning');
+      spinner.classList.add('hidden');
     });
 }
