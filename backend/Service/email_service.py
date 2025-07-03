@@ -10,14 +10,13 @@ import json
 
 
 nltk_data_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'nltk_data'))
-config_path = os.path.join(os.path.dirname(__file__), '..', 'config.json')
 nltk.data.path.append(nltk_data_path)
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
+if not openai_api_key:
+    raise Exception("OPENAI_API_KEY não está configurada!")
 
-with open(config_path, 'r', encoding='utf-8') as f:
-    config = json.load(f)
-
-openai.api_key = config.get("OPENAI_API_KEY")
+openai.api_key = openai_api_key
 
 
 def classify_email_service(text):
