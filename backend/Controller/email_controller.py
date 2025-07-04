@@ -20,7 +20,7 @@ def classify_email():
         try:
             result = json.loads(result_raw)
         except json.JSONDecodeError:
-            print(f"Erro ao fazer JSON parse da resposta: {result_raw}")
+
             return jsonify({'error': 'Erro ao interpretar resposta da API'}), 500
 
         categoria = result.get('categoria', 'Não identificado')
@@ -32,5 +32,5 @@ def classify_email():
         })
 
     except Exception as e:
-        print(f"Erro inesperado no backend: {e}")
+   
         return jsonify({'error': f'Erro interno: {str(e)}'}), 500
