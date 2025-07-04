@@ -6,7 +6,7 @@ import openai
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
-import json
+
 
 
 nltk_data_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'nltk_data'))
