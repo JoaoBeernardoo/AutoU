@@ -109,8 +109,6 @@ form.addEventListener('submit', async (e) => {
 });
 
 function classifyText(emailText) {
-  console.log('Entroou');
-
   spinner.classList.remove('hidden');
 
   fetch('https://autou-ekn4.onrender.com/email/classify-email', {
