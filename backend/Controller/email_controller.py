@@ -14,8 +14,8 @@ def classify_email():
         if not email_text:
             return jsonify({'error': 'Campo está vazio ou ausente'}), 400
 
-        text_clean = classify_email_service(email_text)
-        result_raw = classify_and_respond_email_openai(text_clean)
+        
+        result_raw = classify_and_respond_email_openai(email_text)
 
         try:
             result = json.loads(result_raw)
