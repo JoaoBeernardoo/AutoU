@@ -48,3 +48,7 @@ O projeto foi dividido em duas camadas principais:
 - Convenção `snake_case` para funções e variáveis no backend.
 - Comentários e nomes de variáveis em inglês, visando boas práticas e portabilidade.
 - Arquitetura escalável, ainda que simplificada, com separação entre Controller, Service e Model.
+
+## Obs
+
+- Na primeira vez de uso pode demorar um pouco porque como se trata de um servidor gratuito, quando não tem pessoas usando ele "dorme" e depois precisa se reinicializar.
